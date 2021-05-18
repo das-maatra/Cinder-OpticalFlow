@@ -1,0 +1,65 @@
+/*
+
+	ParticleUpdate.comp
+		- Shuvashis Das 02/13/2020
+
+*/
+
+#version 420 core
+#extension GL_ARB_compute_shader : enable
+#extension GL_ARB_shader_storage_buffer_object : enable
+#extension GL_ARB_compute_variable_group_size : enable
+
+//uniforms 
+uniform sampler2D			uTexOpticalFlow;
+uniform vec2 				uCanvasSize;
+uniform float				uForceMult;
+
+vec2						fluidVel;
+const float					dt2 = 1.0 / (10*10.0);
+
+// returns optical flow velocity based on parfticle position
+vec2 lookupOpticalFlowVelocity(vec2 pos) {
+	vec2 coord = (pos.xy / uCanvasSize);
+	// flipping y coordinate
+	coord.y = 1.0 - coord.y; 
+	vec4 col = texture2D(uTexOpticalFlow, coord);
+	if (col.w >0.95)  col.z=col.z*-1;
+	return vec2(-1*(col.y-col.x),col.z);
+}
+
+struct Particle{
+
+	vec3			pos;
+	vec3			ppos;
+	vec3			initPos;
+	vec4			color;
+	float			damping;
+
+};
+
+layout( std140, binding = 0 ) buffer Part{
+    Particle particles[];
+};
+
+layout( local_size_x = 128, local_size_y = 1, local_size_z = 1 ) in;
+
+void main(){
+
+	uint gid			=			gl_GlobalInvocationID.x;
+	vec3 position		=			particles[gid].pos;
+	vec3 pposition		=			particles[gid].ppos;
+	float damping		=			particles[gid].damping;
+	vec3 initPos		=			particles[gid].initPos;
+	vec4 color			=			particles[gid].color;
+	
+	// adding optical flow vel
+	fluidVel = lookupOpticalFlowVelocity( particles[gid].pos.xy );
+	position.xy += fluidVel * uForceMult;
+
+	vec3 vel = (position - pposition) * damping;
+	particles[gid].ppos = position;
+	vec3 acc = (initPos - position);
+	particles[gid].pos = position + vel + acc * dt2;
+
+}

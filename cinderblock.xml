@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block 
+	name="Cinder-OpticalFlow"
+	id = "org.libcinder.opticalflow"
+	author="RPH"
+	summary="OpticalFlow"
+	git="https://github.com/redpaperheart/Cinder-OpticalFlow.git"
+	>
+	<supports os="msw" />
+	<includePath>include</includePath>
+	<sourcePattern>src/*.cpp</sourcePattern>
+	<headerPattern>include/*.h</headerPattern>
+</block>
+</cinder>

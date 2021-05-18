@@ -1,0 +1,82 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{23D66E11-B373-4CD5-882C-A3ED339B162A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-OpticalFlow">
+      <UniqueIdentifier>{C544CDE3-5A89-48AC-9D36-1F21EFBA927C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-OpticalFlow\src">
+      <UniqueIdentifier>{1C6524D6-55E5-411B-A210-93FF445DD660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-OpticalFlow\include">
+      <UniqueIdentifier>{220F90AC-6AFB-4E9C-B297-539D7E59AD5D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{b4e9f9f7-7d29-4821-93f8-7f82dc2d577f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\glsl">
+      <UniqueIdentifier>{5fa6b5b4-b2c6-4e93-ae1d-455b5caaedd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\glsl\particles">
+      <UniqueIdentifier>{cc10e275-438c-428a-a349-f5b5fba7cce8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ParticleGridApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleGridApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\src\OpticalFlow.cpp">
+      <Filter>Blocks\Cinder-OpticalFlow\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Shaders.cpp">
+      <Filter>Blocks\Cinder-OpticalFlow\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\include\OpticalFlow.h">
+      <Filter>Blocks\Cinder-OpticalFlow\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Shaders.h">
+      <Filter>Blocks\Cinder-OpticalFlow\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\glsl\particles\particleRender.frag">
+      <Filter>assets\glsl\particles</Filter>
+    </None>
+    <None Include="..\assets\glsl\particles\particleRender.geom">
+      <Filter>assets\glsl\particles</Filter>
+    </None>
+    <None Include="..\assets\glsl\particles\particleRender.vert">
+      <Filter>assets\glsl\particles</Filter>
+    </None>
+    <None Include="..\assets\glsl\particles\particleUpdate.vert" />
+  </ItemGroup>
+</Project>
